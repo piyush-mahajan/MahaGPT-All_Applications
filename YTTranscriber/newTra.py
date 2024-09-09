@@ -7,11 +7,11 @@ import google.generativeai as genai
 
 from youtube_transcript_api import YouTubeTranscriptApi
 
-transcript_list = YouTubeTranscriptApi.list_transcripts('Y9Um-8nPnVQ')
-for transcript in transcript_list:
-     print(transcript.fetch())
-     german = transcript.translate('mr').fetch()
-     print(transcript.translate('mr').fetch())
+# transcript_list = YouTubeTranscriptApi.list_transcripts('Y9Um-8nPnVQ')
+# for transcript in transcript_list:
+#      print(transcript.fetch())
+#      german = transcript.translate('mr').fetch()
+#      print(transcript.translate('mr').fetch())
 
 # new things added above it 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -47,15 +47,12 @@ def generate_gemini_content(transcript_text,prompt):
     return response.text
 
 
-st.title("mahaGPT - YouTube Transcript to Detailed Notes Converter")
+st.title("PPAS Summery - YouTube Transcript to Detailed Notes Converter")
 youtube_link = st.text_input("Enter YouTube Video Link:")
 
 if youtube_link:
     video_id = youtube_link.split("=")[1]
     print(video_id)
-    # transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
-    # for transcript in transcript_list:
-    #  german = transcript.translate('mr').fetch()
 
     st.image(f"http://img.youtube.com/vi/{video_id}/0.jpg", use_column_width=True)
 
