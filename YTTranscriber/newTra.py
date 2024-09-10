@@ -47,13 +47,13 @@ def generate_gemini_content(transcript_text,prompt):
     return response.text
 
 
-st.title("PPAS Summery - YouTube Transcript to Detailed Notes Converter")
+st.title("PPAS Summary :- YouTube Transcript to Detailed Notes Converter")
 youtube_link = st.text_input("Enter YouTube Video Link:")
 
 if youtube_link:
     video_id = youtube_link.split("=")[1]
     print(video_id)
-
+# thumbnail
     st.image(f"http://img.youtube.com/vi/{video_id}/0.jpg", use_column_width=True)
 
 if st.button("Get Detailed Notes"):
